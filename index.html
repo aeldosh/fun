@@ -1,0 +1,84 @@
+!<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React To-Do List</title>
+  <!-- Importing React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <!-- Importing Babel to transform JSX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+  <!-- Including the CSS file for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React component and logic -->
+  <script type="text/babel">
+    const { useState } = React;
+
+    // Main App component
+    function App() {
+      const [tasks, setTasks] = useState([]);
+      const [input, setInput] = useState("");
+
+      // Add Task function
+      const addTask = () => {
+        if (input.trim()) {
+          setTasks([...tasks, { text: input, completed: false }]);
+          setInput(""); // Clear input field after adding task
+        }
+      };
+
+      // Toggle Task completion
+      const toggleComplete = (index) => {
+        const updatedTasks = [...tasks];
+        updatedTasks[index].completed = !updatedTasks[index].completed;
+        setTasks(updatedTasks);
+      };
+
+      // Remove Task
+      const removeTask = (index) => {
+        const updatedTasks = tasks.filter((task, i) => i !== index);
+        setTasks(updatedTasks);
+      };
+
+      return (
+        <div className="App">
+          <h1>React To-Do List</h1>
+          <div className="input-container">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Enter a task"
+            />
+            <button onClick={addTask}>Add Task</button>
+          </div>
+          <ul className="task-list">
+            {tasks.map((task, index) => (
+              <li
+                key={index}
+                className={task.completed ? "completed" : ""}
+                onClick={() => toggleComplete(index)}
+              >
+                {task.text}
+                <button className="remove-btn" onClick={() => removeTask(index)}>
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    // Render the App component
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>
