@@ -120,11 +120,8 @@ button {
   0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
   100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
 }
-img {
-  width: 150px;  /* Set width */
-  height: 200px; /* Set height */
-  display: block;
-  margin: 20px auto;
-  border-radius: 10px;
-  object-fit: cover; /* Ensures the image maintains a good aspect ratio */
+img[src="img1.jpeg"] {
+  width: 150px;  /* New width for img1 */
+  height: 200px; /* New height for img1 */
+  object-fit: cover; /* Ensures good aspect ratio */
 }
