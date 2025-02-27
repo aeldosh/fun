@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Welcome Best</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>WELCOME JAISON </h1>
-        <!-- Insert the image from your gallery here -->
-        <img src="JAISAN.jpeg" alt="Image" class="image">
-        <a href="page2.html">
-            <button class="start-button">Start</button>
-        </a>
+    <h1>Welcome Best</h1>
+    <img src="img1.jpeg" alt="Welcome Image">
+    <div class="dashboard">
+        <button onclick="window.location.href='candle.html'">Birthday Candles</button>
+        <button onclick="window.location.href='wish.html'">Birthday Wish</button>
+        <button onclick="partyMessage()">Party</button>
     </div>
+
+    <script>
+        function partyMessage() {
+            alert("Party kab milega?");
+        }
+    </script>
 </body>
 </html>

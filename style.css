@@ -1,89 +1,130 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #1111d0;
+  text-align: center;
+  background-color: #99d8ff;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.App {
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 42px;
+  color:rgba(12, 4, 241, 0.78)
 }
 
-.input-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.dashboard button {
+  display: block;
+  margin: 20px auto;
+  padding: 20px 40px;
+  font-size: 32px;
+  background-color: #d10d3b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Birthday Candle Page */
+.candle-container {
+  margin-top: 50px;
 }
 
 input {
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 200px;
+  margin: 10px;
+  font-size: 16px;
 }
 
 button {
+  display: block;
+  margin: 10px auto;
   padding: 10px 20px;
-  margin-left: 10px;
-  font-size: 1rem;
-  background-color: #4caf50;
+  font-size: 16px;
+  background-color: #f3172d;
   color: white;
   border: none;
-  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#cakeSection {
+  margin-top: 20px;
+}
+
+#cake {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.candle {
+  width: 20px;
+  height: 60px;
+  background: #08e460;
+  margin: 5px auto;
+  position: relative;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #45a049;
+.candle.lit::after {
+  content: '🔥';
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  font-size: 30px;
 }
 
-.task-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* Birthday Wish Page */
+.wish-container {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.task-list li {
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #f9f9f9;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+.wish-container img {
+  width: 200px;
+  margin: 10px;
 }
 
-.task-list li.completed {
-  text-decoration: line-through;
-  background-color: #d3ffd3;
+#animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* Ensures visibility */
 }
 
-.remove-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 5px 10px;
+#balloons {
+  position: absolute;
+  font-size: 40px;
+  opacity: 0.9;
+  animation: floatUp 6s infinite ease-in-out;
 }
 
-.remove-btn:hover {
-  background-color: #e53935;
+#confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  opacity: 0.7;
+  animation: fallDown 5s infinite ease-in-out;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes fallDown {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+img {
+  width: 150px;  /* Set width */
+  height: 200px; /* Set height */
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  object-fit: cover; /* Ensures the image maintains a good aspect ratio */
 }
